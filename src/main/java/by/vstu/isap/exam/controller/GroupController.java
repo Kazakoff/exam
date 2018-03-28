@@ -35,15 +35,16 @@ public class GroupController {
 		}
 		return new ResponseEntity<>(entities, HttpStatus.OK);
 	}
-	/*@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+	//@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/{id}")
-	public ResponseEntity<Group> getById(@PathVariable long id) {
-		Group entity = service.read(id);
+	public ResponseEntity<Gruppyi> getById(@PathVariable long id) {
+		Gruppyi entity = service.read(id);
 		if (entity == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(entity, HttpStatus.OK);
 	}
+	/*
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/name/{name}")
 	public ResponseEntity<Group> getStudentsBySurname(@PathVariable String name) {
