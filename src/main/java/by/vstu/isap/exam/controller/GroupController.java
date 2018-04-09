@@ -35,6 +35,7 @@ public class GroupController {
 		}
 		return new ResponseEntity<>(entities, HttpStatus.OK);
 	}
+	// My commit
 	//@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/{id}")
 	public ResponseEntity<Gruppyi> getById(@PathVariable long id) {
