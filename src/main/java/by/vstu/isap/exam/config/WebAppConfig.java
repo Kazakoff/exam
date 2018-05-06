@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 @ImportResource("classpath:spring-jpa.xml")
-// fdgdgbfdgfdgd
+// 66
 @ComponentScan("by.vstu.isap.exam")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
