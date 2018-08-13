@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import by.vstu.isap.exam.entity.Studentyi;
 import by.vstu.isap.exam.service.StudentService;
-
+// http://localhost:8080/REST/api/student
 @RestController
 @RequestMapping(value = "api/student", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StudentController {
