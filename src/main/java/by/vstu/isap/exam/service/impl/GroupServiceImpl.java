@@ -25,11 +25,11 @@ public class GroupServiceImpl implements GroupService {
 		return repository.findAll();
 	}
 
-	/*@Override
-	public void save(Group entity) {
+	@Override
+	public void save(Gruppyi entity) {
 		repository.save(entity);
 	}
-
+/*
 	@Override
 	public void delete(Long id) {
 		repository.delete(id);

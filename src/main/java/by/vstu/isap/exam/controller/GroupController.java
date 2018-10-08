@@ -45,6 +45,13 @@ public class GroupController {
 		}
 		return new ResponseEntity<>(entity, HttpStatus.OK);
 	}
+	
+	//@PreAuthorize("hasRole('ADMIN')")
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> post(@RequestBody Gruppyi entity) {
+		service.save(entity);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}	
 	/*
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/name/{name}")
@@ -63,12 +70,7 @@ public class GroupController {
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
-	@PreAuthorize("hasRole('ADMIN')")
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> post(@RequestBody Group entity) {
-		service.save(entity);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/{id}")

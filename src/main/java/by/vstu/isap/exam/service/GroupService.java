@@ -11,9 +11,9 @@ public interface GroupService  {
 
 	List<Gruppyi> read();
 
-/*	void save(Gruppyi entity);
+	void save(Gruppyi entity);
 
-	void delete(Long id);
+/*	void delete(Long id);
 	
 	Gruppyi readByName(String name);
 */
