@@ -39,7 +39,7 @@ public class JPAConfig {
 	        return dataSource;
 	    }
 	    
-	    @Bean (name = "entityManagerFactory")
+	    @Bean (name = "entityManagerFactory") // название бина  entityManagerFactory - используется фреймворком 
 	    public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean()
 	    {
 	    	LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
@@ -49,7 +49,7 @@ public class JPAConfig {
 	    	return emfb;
 	    }
 	    
-	    @Bean (name = "transactionManager")
+	    @Bean (name = "transactionManager") // название бина  transactionManager - используется фреймворком 
 	    public JpaTransactionManager getJpaTransactionManager()
 	    {
 	    	return new JpaTransactionManager();

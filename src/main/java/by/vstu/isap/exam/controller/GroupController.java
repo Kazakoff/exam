@@ -27,6 +27,7 @@ public class GroupController {
 	@Autowired
 	private GroupService service;
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping
 	public ResponseEntity<List<Gruppyi>> get() {
 		List<Gruppyi> entities = service.read();
