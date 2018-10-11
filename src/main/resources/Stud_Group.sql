@@ -2,6 +2,13 @@ drop database if exists `gr`;
 CREATE DATABASE  `gr` ;
 USE `gr`;
 
+CREATE TABLE `t`.`faculty` (
+  `id` INT NOT NULL ,
+  `Name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`)  );
+  
+  INSERT INTO `t`.`faculty` (`id`, `Name`) VALUES ('1', 'F1');
+INSERT INTO `t`.`faculty` (`id`, `Name`) VALUES ('2', 'F2');
 
 CREATE TABLE `gruppyi` (
   `Nazvanie` varchar(50) NOT NULL unique,

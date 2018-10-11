@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class Gruppyi  {
 
 
-     private Integer shifr;
+     private long shifr;
      private String nazvanie;
      private Date dataFormir;
      private int kodPlana;
@@ -70,11 +70,11 @@ public class Gruppyi  {
      @Id @GeneratedValue(strategy=IDENTITY)
     
     @Column(name="Shifr", unique=true, nullable=false)
-    public Integer getShifr() {
+    public long getShifr() {
         return this.shifr;
     }
     
-    public void setShifr(Integer shifr) {
+    public void setShifr(long shifr) {
         this.shifr = shifr;
     }
     
