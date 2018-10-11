@@ -20,7 +20,6 @@ import by.vstu.isap.exam.entity.Gruppyi;
 import by.vstu.isap.exam.service.GroupService;
 
 @RestController
-//@RequestMapping(value = "api/group", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequestMapping(value = "api/group")
 public class GroupController {
 
@@ -35,8 +34,7 @@ public class GroupController {
 		}
 		return new ResponseEntity<>(entities, HttpStatus.OK);
 	}
-	// My commit
-	//@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Gruppyi> getById(@PathVariable long id) {
 		Gruppyi entity = service.read(id);
@@ -46,37 +44,4 @@ public class GroupController {
 		return new ResponseEntity<>(entity, HttpStatus.OK);
 	}
 	
-	//@PreAuthorize("hasRole('ADMIN')")
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> post(@RequestBody Gruppyi entity) {
-		service.save(entity);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}	
-	/*
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	@GetMapping("/name/{name}")
-	public ResponseEntity<Group> getStudentsBySurname(@PathVariable String name) {
-		Group group = service.readByName(name);
-		if (group == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(group, HttpStatus.OK);
-	}
-
-	@PreAuthorize("hasRole('ADMIN')")
-	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> put(@RequestBody Group entity) {
-		service.save(entity);
-		return new ResponseEntity<>(HttpStatus.CREATED);
-	}
-	
-
-
-	@PreAuthorize("hasRole('ADMIN')")
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delete(@PathVariable long id) {
-		service.delete(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	*/
 }
