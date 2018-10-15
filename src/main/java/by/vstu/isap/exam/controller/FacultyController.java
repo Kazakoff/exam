@@ -23,7 +23,7 @@ public class FacultyController {
 	@Autowired
 	private FacultyService service;
 	
-	//@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping
 	public ResponseEntity<List<Faculty>> get() {
 		List<Faculty> entities = service.read();
@@ -32,8 +32,8 @@ public class FacultyController {
 		}
 		return new ResponseEntity<>(entities, HttpStatus.OK);
 	}
-	// My commit
-	//@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@GetMapping("/{id}")
 	public ResponseEntity<Faculty> getById(@PathVariable long id) {
 		Faculty entity = service.read(id);

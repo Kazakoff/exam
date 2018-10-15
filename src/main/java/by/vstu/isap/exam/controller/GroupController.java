@@ -1,12 +1,16 @@
 package by.vstu.isap.exam.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +24,6 @@ import by.vstu.isap.exam.entity.Gruppyi;
 import by.vstu.isap.exam.service.GroupService;
 
 @RestController
-//@RequestMapping(value = "api/group", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequestMapping(value = "api/group")
 public class GroupController {
 
@@ -36,8 +39,8 @@ public class GroupController {
 		}
 		return new ResponseEntity<>(entities, HttpStatus.OK);
 	}
-	// My commit
-	//@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+
+	@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 	@GetMapping("/{id}")
 	public ResponseEntity<Gruppyi> getById(@PathVariable long id) {
 		Gruppyi entity = service.read(id);
@@ -53,6 +56,25 @@ public class GroupController {
 		service.save(entity);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}	
+
+	//@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/cnt")
+	public ResponseEntity<Map<String,Integer>> studcnt() {
+		List<Gruppyi> entities = service.read();
+		Map<String, Integer> resp = new HashMap<String, Integer>();
+		for( Gruppyi gr: entities) { 
+			resp.put(gr.getNazvanie(), gr.getStudentyis().size());
+		}
+		return new ResponseEntity<Map<String,Integer>>(resp,HttpStatus.OK);
+	}	
+	
+/*	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> delete(@PathVariable long id) {
+		service.delete(id);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	*/
 	/*
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/name/{name}")
@@ -73,11 +95,6 @@ public class GroupController {
 	
 
 
-	@PreAuthorize("hasRole('ADMIN')")
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delete(@PathVariable long id) {
-		service.delete(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+
 	*/
 }

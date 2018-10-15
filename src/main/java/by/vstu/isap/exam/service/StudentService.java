@@ -12,6 +12,8 @@ public interface StudentService  {
 	
 	Studentyi readByNomerZachetki(Long id);
 	
+	void delete(Long id);
+	
 	/*List<Studentyi> readByGroupId(Long id);
 
 	List<Studentyi> readBySurname(String surname);
@@ -24,7 +26,7 @@ public interface StudentService  {
 
 	void save(Studentyi entity);
 
-	void delete(Long id);
+
 	*/
 
 }

@@ -35,7 +35,7 @@ public class Studentyi  {
 
      private long nomerZachetki;
      
- //    @JsonManagedReference
+    @JsonManagedReference
      private Gruppyi gruppyi;
      
      

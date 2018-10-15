@@ -44,6 +44,14 @@ public class StudentController {
 		return new ResponseEntity<>(entity, HttpStatus.OK);
 	}
 	
+	//@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> delete(@PathVariable long id) {
+		service.delete(id);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
 /*	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/{id}")
 	public ResponseEntity<Student> getById(@PathVariable long id) {
@@ -86,12 +94,7 @@ public class StudentController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delete(@PathVariable long id) {
-		service.delete(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+
 
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
 	@GetMapping("/thre/{name,surname,secondname}")

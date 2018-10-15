@@ -44,7 +44,7 @@ public class Gruppyi  {
      private int kodPlana;
      private String status;
      private Date statusDate;
-    // @JsonBackReference
+     @JsonBackReference
      private List <Studentyi> studentyis;
 
 
@@ -124,7 +124,7 @@ public class Gruppyi  {
     }
    //ДЛЯ загрузки студентов вместе с группами 
 //@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="gruppyi")
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="gruppyi")
+    @OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER, mappedBy="gruppyi")
     public List <Studentyi> getStudentyis() {
         return this.studentyis;
     }

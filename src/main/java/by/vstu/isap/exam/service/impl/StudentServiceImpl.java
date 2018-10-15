@@ -28,16 +28,20 @@ public class StudentServiceImpl implements StudentService {
 	public Studentyi readByNomerZachetki(Long id) {
 		return repository.findByNomerZachetki(id);
 	}
-
-/*	@Override
-	public void save(Student entity) {
-		repository.save(entity);
-	}
-
+	
+	
 	@Override
 	public void delete(Long id) {
 		repository.delete(id);
 	}
+	
+/*
+	@Override
+	public void save(Student entity) {
+		repository.save(entity);
+	}
+
+
 
 	@Override
 	public List<Student> readByGroupId(Long id) {

@@ -12,8 +12,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 // boot   
 @ComponentScan("by.vstu.isap.exam")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
-    @Override
+ /*   @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**");
     }
+    */
 }
