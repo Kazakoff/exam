@@ -52,58 +52,6 @@ public class StudentController {
 		
 	}
 	
-/*	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	@GetMapping("/{id}")
-	public ResponseEntity<Student> getById(@PathVariable long id) {
-		Student entity = service.read(id);
-		if (entity == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(entity, HttpStatus.OK);
-	}
-
-	@GetMapping("/group/{id}")
-	public ResponseEntity<List<Student>> getStudentsByGroup(@PathVariable long id) {
-		List<Student> students = service.readByGroupId(id);
-		if (students.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(students, HttpStatus.OK);
-	}
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	@GetMapping("/surname/{surname}")
-	public ResponseEntity<List<Student>> getStudentsBySurname(@PathVariable String surname) {
-		List<Student> students = service.readBySurname(surname);
-		if (students.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(students, HttpStatus.OK);
-	}
-
-	@PreAuthorize("hasAnyRole('ADMIN')")
-	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> put(@RequestBody Student entity) {
-		service.save(entity);
-		return new ResponseEntity<>(HttpStatus.CREATED);
-	}
-
-	@PreAuthorize("hasRole('ADMIN')")
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> post(@RequestBody Student entity) {
-		service.save(entity);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
 
 
-
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	@GetMapping("/thre/{name,surname,secondname}")
-	public ResponseEntity<List<Student>> getStudentsByThre(@PathVariable String name,String surname,String secondname) {
-		List<Student> students = service.readByThre(name,surname,secondname);
-		if (students.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(students, HttpStatus.OK);
-	}
-	*/
 }

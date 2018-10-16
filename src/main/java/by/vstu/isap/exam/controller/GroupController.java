@@ -57,44 +57,5 @@ public class GroupController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}	
 
-	//@PreAuthorize("hasRole('ADMIN')")
-	@GetMapping("/cnt")
-	public ResponseEntity<Map<String,Integer>> studcnt() {
-		List<Gruppyi> entities = service.read();
-		Map<String, Integer> resp = new HashMap<String, Integer>();
-		for( Gruppyi gr: entities) { 
-			resp.put(gr.getNazvanie(), gr.getStudentyis().size());
-		}
-		return new ResponseEntity<Map<String,Integer>>(resp,HttpStatus.OK);
-	}	
-	
-/*	@PreAuthorize("hasRole('ADMIN')")
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> delete(@PathVariable long id) {
-		service.delete(id);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	*/
-	/*
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-	@GetMapping("/name/{name}")
-	public ResponseEntity<Group> getStudentsBySurname(@PathVariable String name) {
-		Group group = service.readByName(name);
-		if (group == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<>(group, HttpStatus.OK);
-	}
 
-	@PreAuthorize("hasRole('ADMIN')")
-	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> put(@RequestBody Group entity) {
-		service.save(entity);
-		return new ResponseEntity<>(HttpStatus.CREATED);
-	}
-	
-
-
-
-	*/
 }
